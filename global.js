@@ -5,18 +5,6 @@ function $$ (selector, context = document) {
     return Array.from(context.querySelectorAll(selector));
 }
 
-// // Getting all the links in the current page
-// let navLinks = $$("nav a");
-
-// // Getting the link to the current page
-// let currentLink = navLinks.find(a => a.host === location.host && a.pathname === location.pathname);
-
-// // Adding "current" class to the a tag of the current page if the link is 
-// // defined
-// if (currentLink) { // or if (currentLink !== undefined)
-//     currentLink.classList.add("current");
-// }
-
 // Adding navigation menu
 // Creating structure to store the links to pages
 let pages = [
@@ -49,10 +37,7 @@ for (let page of pages) {
     a.href = url
     a.textContent = title
 
-    // Adding current class to the current page
-    if (a.host === location.host && a.pathname === location.pathname) {
-        a.classList.add("current")
-    }
+    a.classList.toggle("current", a.host === location.host && a.pathname === location.pathname) // toggles the class current if condition is met
 
     // Adding target="_blank" to external links
     if(a.host !== location.host){
