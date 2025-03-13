@@ -24,6 +24,7 @@ let pages = [
     {url: "contact/", title: "Contact"},
     {url: "cv/", title: "Curriculum"},
     {url: "projects/", title: "Projects"},
+    {url: "https://github.com/ddanieldma", title: "Projects"},
 ]
 
 // Creates a nav tag 
@@ -43,8 +44,20 @@ for (let page of pages) {
 
     // Creating a tag
     let a = document.createElement("a")
+    
     // Setting it up
     a.href = url
     a.textContent = title
+
+    // Adding current class to the current page
+    if (a.host === location.host && a.pathname === location.pathname) {
+        a.classList.add("current")
+    }
+
+    // Adding target="_blank" to external links
+    if(a.host !== location.host){
+        a.target="_blank"
+    }
+
     nav.append(a)   
 }
