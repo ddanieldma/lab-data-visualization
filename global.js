@@ -41,6 +41,10 @@ for (let page of pages) {
         url = "../" + url
     }
 
-    // Create link and add it to nav
-    nav.insertAdjacentHTML("beforeend", `<a href="${ url }">${ title }</a>`)
+    // Creating a tag
+    let a = document.createElement("a")
+    // Setting it up
+    a.href = url
+    a.textContent = title
+    nav.append(a)   
 }
