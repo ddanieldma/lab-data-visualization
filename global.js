@@ -46,3 +46,31 @@ for (let page of pages) {
 
     nav.append(a)   
 }
+
+// Adding the light/dark theme switch
+// Creating its label
+const label = document.createElement("label")
+label.className = "color-scheme"
+label.textContent = "Theme: ";
+
+// Creating the select field
+const select = document.createElement('select')
+
+// Adding the options
+const options = [
+    'Auto',
+    'Dark',
+    'White',
+]
+options.forEach(optionText => {
+    const option = document.createElement('option')
+    option.value = optionText.toLowerCase()
+    option.textContent = optionText;
+    select.appendChild(option)
+})
+
+// Adding the select field
+label.appendChild(select)
+
+// Adding the switch to the page
+document.body.insertAdjacentElement('afterbegin', label)
