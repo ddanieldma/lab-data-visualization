@@ -5,11 +5,25 @@
 	--tan: #d2b48c;
 	--mocha: #3c280d;
 	--maroon: #800000;
-	--color-accent: oklch(from var(--maroon) 100% 50% h);
+	--maroon-color-accent: oklch(from var(--maroon) 100% 50% h);
+	--wallnut: #432616;
+	--gingerbread: #5e2c04;
+	--peanut: #745c34;
+	--tawny: #80471c;
 }
 
-html{
-	color-scheme: dark;
+@media (prefers-color-scheme: light) {
+	body {
+		color: black;
+		background-color: var(--tan);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		color: white;
+		background-color: var(--wallnut);
+	}
 }
 
 body {
@@ -22,8 +36,6 @@ body {
 	max-width: 100ch;
 
 	margin-inline: max(1em, (100% - 100ch) / 2);
-
-	background-color: var(--tan);
 }
 
 /* ========================================================= */
@@ -44,23 +56,54 @@ nav a{
 
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
-	border-bottom-color: var(--tortilla);
+}
+
+@media (prefers-color-scheme: light){
+	nav a {
+		border-bottom-color: var(--tortilla);
+	}
+}
+@media (prefers-color-scheme: dark){
+	nav a {
+		border-bottom-color: var(--tortilla);
+	}
 }
 
 a.current {
 	padding-bottom: -5px;
 	border-bottom-width: 5px;
 	border-bottom-style: solid;
-	border-bottom-color: var(--mocha);
+}
+
+@media (prefers-color-scheme: light) {
+	a.current {
+		border-bottom-color: var(--mocha);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	a.current {
+		border-bottom-color: var(--peanut);
+	}
 }
 
 a:hover {
 	padding-bottom: -5px;
 	border-bottom-width: 5px;
 	border-bottom-style: solid;
-	border-bottom-color: var(--maroon);
-
-	background-color: var(--color-accent);
+}
+@media (prefers-color-scheme: light){
+	a:hover {
+		border-bottom-color: var(--maroon);
+		
+		background-color: var(--maroon-color-accent);
+	}
+}
+@media (prefers-color-scheme: dark){
+	a:hover {
+		border-bottom-color: var(--tawny);
+		
+		background-color: var(--peanut);
+	}
 }
 
 /* Contact form */
@@ -120,4 +163,22 @@ h1, h2, h3 {
 .cv .info {
 	grid-template-columns: subgrid;
 	grid-column: 1 / -1;
+}
+
+/* Theme switch */
+.color-scheme {
+	position: absolute;
+	
+	top: 1rem;
+	right: 1rem;
+
+	display: inline-flex;
+	gap: 4px;
+
+	font-family: inherit;
+	font-size: 80%;
+}
+
+body {
+	padding: 1rem, 1rem, 0, 0
 }
