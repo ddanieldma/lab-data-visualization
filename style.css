@@ -19,7 +19,7 @@ body {
 	font: 100%/1.5 system-ui;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-	max-width: 85em;
+	max-width: 100ch;
 
 	margin-inline: max(1em, (100% - 100ch) / 2);
 
@@ -61,4 +61,27 @@ a:hover {
 	border-bottom-color: var(--maroon);
 
 	background-color: var(--color-accent);
+}
+
+/* Form styling */
+.form input,
+.form textarea,
+.form #button{
+	font: inherit;
+}
+
+.form form{
+	display: grid;
+
+	grid-template-columns: auto 1fr;
+	gap: 1em;
+}
+
+.form form label{
+	display: grid;
+	grid-template-columns: subgrid;
+}
+.form label,
+.form button{
+	grid-column: 1 / -1;
 }
