@@ -63,25 +63,61 @@ a:hover {
 	background-color: var(--color-accent);
 }
 
-/* Form styling */
+/* Contact form */
 .form input,
 .form textarea,
-.form #button{
+.form #button {
 	font: inherit;
 }
 
-.form form{
+.form form {
 	display: grid;
 
 	grid-template-columns: auto 1fr;
 	gap: 1em;
 }
 
-.form form label{
+.form form label {
 	display: grid;
 	grid-template-columns: subgrid;
 }
 .form label,
-.form button{
+.form button {
+	grid-column: 1 / -1;
+}
+
+/* Projects page */
+img {
+	max-width: 100%;
+}
+
+.projects {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+}
+
+.projects article {
+	grid-template-columns: subgrid;
+
+	grid-row: span 3;
+}
+
+.projects h2 {
+	margin: 0;
+}
+
+h1, h2, h3 {
+	text-wrap: valance;
+}
+
+/* CV page */
+.cv {
+	display: grid;
+	grid-template-columns: auto 1fr;
+}
+
+.cv .section,
+.cv .info {
+	grid-template-columns: subgrid;
 	grid-column: 1 / -1;
 }
